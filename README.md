@@ -126,7 +126,8 @@ Open Settings (gear icon or `⌘,`) to:
 └─────────────────────────────────────────────────┘
 ```
 
-![Uploading Screenshot 2026-05-27 at 19.36.11.png…]()
+<img width="940" height="630" alt="Screenshot 2026-05-27 at 19 36 11" src="https://github.com/user-attachments/assets/083f85d7-7176-4c3d-9dba-883354089c94" />
+
 
 
 Key design decisions:
