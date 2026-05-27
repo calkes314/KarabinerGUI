@@ -1,0 +1,144 @@
+:root,
+[data-theme="light"] {
+  --bg-app: #f5f5f5;
+  --bg-surface: #f9f9f9;
+  --bg-card: #ffffff;
+  --bg-hover: #e0e0e0;
+  --bg-selected: #e8f0fe;
+
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #888888;
+  --text-inverse: #ffffff;
+
+  --border: #ddd;
+  --border-light: #eee;
+
+  --accent: #4a90e2;
+  --accent-hover: #357abd;
+  --accent-text: #ffffff;
+
+  --key-fill: #f0f0f0;
+  --key-hover-fill: #e0e0e0;
+  --key-stroke: #ccc;
+  --key-selected-fill: #4a90e2;
+  --key-selected-stroke: #357abd;
+  --key-remapped-fill: #fff3e0;
+  --key-remapped-stroke: #e67e22;
+  --key-remapped-layer-fill: #e8f0fe;
+  --key-remapped-layer-stroke: #5a9cf0;
+
+  --svg-bg: #ffffff;
+  --svg-shadow: rgba(0, 0, 0, 0.1);
+
+  --panel-shadow: rgba(0, 0, 0, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+
+  --layer-btn-active-bg: #4a90e2;
+  --layer-btn-active-text: #ffffff;
+
+  --success-bg: #e8f5e9;
+  --success-text: #2e7d32;
+  --error-text: #c0392b;
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb: #ccc;
+
+  --bg-image-overlay: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+  --bg-app: #1a1a2e;
+  --bg-surface: #16213e;
+  --bg-card: #1e1e38;
+  --bg-hover: #2a2a44;
+  --bg-selected: #1a2a4e;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --text-inverse: #1a1a2e;
+
+  --border: #3a3a52;
+  --border-light: #2a2a42;
+
+  --accent: #64b5f6;
+  --accent-hover: #42a5f5;
+  --accent-text: #1a1a2e;
+
+  --key-fill: #2a2a44;
+  --key-hover-fill: #3a3a54;
+  --key-stroke: #4a4a62;
+  --key-selected-fill: #64b5f6;
+  --key-selected-stroke: #42a5f5;
+  --key-remapped-fill: #3a2a40;
+  --key-remapped-stroke: #e67e22;
+  --key-remapped-layer-fill: #1a2a4e;
+  --key-remapped-layer-stroke: #5a9cf0;
+
+  --svg-bg: #1e1e38;
+  --svg-shadow: rgba(0, 0, 0, 0.3);
+
+  --panel-shadow: rgba(0, 0, 0, 0.4);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+
+  --layer-btn-active-bg: #64b5f6;
+  --layer-btn-active-text: #1a1a2e;
+
+  --success-bg: #1a3a2e;
+  --success-text: #66bb6a;
+  --error-text: #ef5350;
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb: #3a3a52;
+
+  --bg-image-overlay: rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="obsidian"] {
+  --bg-app: #1a1a2e;
+  --bg-surface: #232338;
+  --bg-card: #2a2a42;
+  --bg-hover: #3a3a54;
+  --bg-selected: #2a2040;
+
+  --text-primary: #f0eef6;
+  --text-secondary: #a5a5c0;
+  --text-muted: #7a7a95;
+  --text-inverse: #1a1a2e;
+
+  --border: #3a3a52;
+  --border-light: #2e2e48;
+
+  --accent: #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-text: #ffffff;
+
+  --key-fill: #2e2e48;
+  --key-hover-fill: #3e3e58;
+  --key-stroke: #4a4a62;
+  --key-selected-fill: #7C3AED;
+  --key-selected-stroke: #6D28D9;
+  --key-remapped-fill: #2e2048;
+  --key-remapped-stroke: #8B5CF0;
+  --key-remapped-layer-fill: #1e1e48;
+  --key-remapped-layer-stroke: #6366F1;
+
+  --svg-bg: #2a2a42;
+  --svg-shadow: rgba(0, 0, 0, 0.4);
+
+  --panel-shadow: rgba(0, 0, 0, 0.5);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+
+  --layer-btn-active-bg: #7C3AED;
+  --layer-btn-active-text: #ffffff;
+
+  --success-bg: #1a3a2e;
+  --success-text: #66bb6a;
+  --error-text: #ef5350;
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb: #3a3a52;
+
+  --bg-image-overlay: rgba(0, 0, 0, 0.85);
+}
