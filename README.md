@@ -22,17 +22,36 @@
 
 ## Quick Start
 
-```bash
-cd karabiner-editor
-npm install
-npm run dev
-```
+### Prerequisites
 
-This starts two servers concurrently:
-- **React dev server** on `http://localhost:3003`
-- **Express config server** on `http://localhost:3001`
+1. **Install Node.js** — go to [nodejs.org](https://nodejs.org) and download the latest LTS version (the installer will guide you through it). This also installs `npm`, which you need for the next step.
+2. **Install Karabiner-Elements** — download from [karabiner-elements.pqrs.org](https://karabiner-elements.pqrs.org) if you haven't already (only needed for saving to the real karabiner.json).
 
-Open `http://localhost:3003` in a browser.
+### Running the app
+
+1. Open **Terminal** (macOS: Cmd+Space, type "Terminal", press Enter).
+2. Navigate to the project folder by typing:
+   ```bash
+   cd karabiner-editor
+   ```
+   (If you downloaded the ZIP, the folder is probably in your Downloads — type `cd ~/Downloads/karabiner_GUI/karabiner-editor` instead.)
+3. Install dependencies (one-time):
+   ```bash
+   npm install
+   ```
+   This downloads all required libraries. It may take a minute.
+4. Start the app:
+   ```bash
+   npm run dev
+   ```
+   This starts two servers at the same time:
+   - **The editor** at `http://localhost:3003`
+   - **The config server** at `http://localhost:3001`
+5. Open your browser and go to **http://localhost:3003**.
+
+### Stopping the app
+
+Click back into the Terminal window and press **Ctrl+C** (hold Control, press C).
 
 ---
 
