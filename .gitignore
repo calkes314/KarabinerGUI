@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.DS_Store?
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Build
+build/
+dist/
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
