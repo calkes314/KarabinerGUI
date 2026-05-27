@@ -126,6 +126,9 @@ Open Settings (gear icon or `⌘,`) to:
 └─────────────────────────────────────────────────┘
 ```
 
+![Uploading Screenshot 2026-05-27 at 19.36.11.png…]()
+
+
 Key design decisions:
 
 - **No CRA proxy** — server adds CORS headers for `localhost:3003`; client fetches directly
