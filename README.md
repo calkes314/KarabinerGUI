@@ -30,17 +30,21 @@
 ### Running the app
 
 1. Open **Terminal** (macOS: Cmd+Space, type "Terminal", press Enter).
-2. Navigate to the project folder by typing:
+2. Download the project:
    ```bash
-   cd karabiner-editor
+   git clone https://github.com/calkes314/KarabinerGUI.git
    ```
-   (If you downloaded the ZIP, the folder is probably in your Downloads — type `cd ~/Downloads/karabiner_GUI/karabiner-editor` instead.)
-3. Install dependencies (one-time):
+   (Or download the ZIP from GitHub and extract it.)
+3. Navigate into the project folder:
+   ```bash
+   cd KarabinerGUI/karabiner-editor
+   ```
+4. Install dependencies (one-time):
    ```bash
    npm install
    ```
    This downloads all required libraries. It may take a minute.
-4. Start the app:
+5. Start the app:
    ```bash
    npm run dev
    ```
