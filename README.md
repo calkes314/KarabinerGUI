@@ -2,6 +2,9 @@
 
 **Visual keyboard editor for Karabiner-Elements.** A React app to create, edit, and manage complex modifications through an interactive SVG keyboard — no JSON editing by hand.
 
+<img width="929" height="770" alt="Screenshot 2026-05-27 at 20 06 03" src="https://github.com/user-attachments/assets/96a922da-f91a-456d-b0ee-291a4ddc547e" />
+
+
 ---
 
 ## Features
