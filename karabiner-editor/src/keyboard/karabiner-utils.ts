@@ -135,7 +135,7 @@ export const KEY_ALIASES: Record<string, string> = {
   pgdn: 'page_down',
   ins: 'insert',
   insert: 'insert',
-  del: 'delete_forward',
+  del: 'delete_or_backspace',
 };
 
 export function getDisplayName(keyCode: string): string {
@@ -309,7 +309,7 @@ export function toKarabinerJson(
   }
 
   function buildTapItem(sourceId: string, config: any | undefined, originalKeyCode: string, halt?: boolean): any {
-    if (config) {
+    if (config && config.keyCode) {
       const fromKeyCodeForCheck = KEY_ID_TO_KARABINER[sourceId] || sourceId;
       const isPassThrough = config.keyCode === fromKeyCodeForCheck
         && (!config.modifiers || config.modifiers.length === 0);
@@ -338,7 +338,31 @@ export function toKarabinerJson(
     return item;
   }
 
+  function fixEmptyKeyCodes(rules: any[]): void {
+    for (const rule of rules) {
+      if (!rule.manipulators) continue;
+      for (const manip of rule.manipulators) {
+        const fromKeyCode = manip?.from?.key_code;
+        if (!fromKeyCode) continue;
+        const process = (obj: any) => {
+          if (!obj || typeof obj !== 'object') return;
+          if (obj.key_code === '') obj.key_code = fromKeyCode;
+        };
+        for (const key of ['to', 'to_if_alone', 'to_if_held_down', 'to_if_canceled', 'to_if_invoked']) {
+          if (Array.isArray(manip[key])) manip[key].forEach(process);
+        }
+        if (manip.to_delayed_action) {
+          for (const sub of ['to_if_canceled', 'to_if_invoked']) {
+            if (Array.isArray(manip.to_delayed_action[sub])) manip.to_delayed_action[sub].forEach(process);
+          }
+        }
+      }
+    }
+  }
+
   for (const [keyId, switchEntry] of Object.entries(layerSwitches)) {
+    const layoutId = KARABINER_TO_KEY_ID[keyId];
+    if (layoutId && layerSwitches[layoutId]) continue;
     const targetLayerId = switchEntry.targetLayerId;
     const mode = switchEntry.mode || 'hold';
     const fromKeyCode = KEY_ID_TO_KARABINER[keyId] || keyId;
@@ -368,7 +392,7 @@ export function toKarabinerJson(
       manip.to_if_alone = [buildTapItem(keyId, basicConfig, fromKeyCode, true)];
       manip.to_if_held_down = makeModifierItem(heldMods, true);
     } else {
-      if (basicConfig) {
+      if (basicConfig && basicConfig.keyCode) {
         const fromKeyCodeForCheck = KEY_ID_TO_KARABINER[keyId] || keyId;
         const isPassThrough = basicConfig.keyCode === fromKeyCodeForCheck
           && (!basicConfig.modifiers || basicConfig.modifiers.length === 0);
@@ -402,6 +426,8 @@ export function toKarabinerJson(
   if (rawRules) {
     rules.push(...rawRules);
   }
+
+  fixEmptyKeyCodes(rules);
 
   if (rules.length === 0) {
     return JSON.stringify({
@@ -437,7 +463,7 @@ export function validateKarabinerJson(jsonString: string): ValidationIssue[] {
       for (const manip of rule.manipulators || []) {
         const check = (obj: any, path: string) => {
           if (!obj || typeof obj !== 'object') return;
-          if (typeof obj.key_code === 'string' && !VALID_KEY_CODE_RE.test(obj.key_code)) {
+          if (typeof obj.key_code === 'string' && obj.key_code !== '' && !VALID_KEY_CODE_RE.test(obj.key_code)) {
             issues.push({ rule: desc, field: path + '.key_code', value: obj.key_code });
           }
           for (const key of ['to', 'to_if_alone', 'to_if_held_down', 'to_if_canceled', 'to_if_invoked']) {
@@ -494,7 +520,7 @@ export function fromKarabinerJson(jsonString: string, splitModifiers?: boolean):
         const swMatch = desc.match(switchRe);
 
         if (swMatch) {
-          const keyId = swMatch[1];
+          const keyId = KARABINER_TO_KEY_ID[swMatch[1]] || swMatch[1];
           const targetLayerName = swMatch[2];
           const targetLayer = LAYERS.find(l => l.name === targetLayerName);
           if (targetLayer) {
